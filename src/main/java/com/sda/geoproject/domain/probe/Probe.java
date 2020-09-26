@@ -19,10 +19,6 @@ public class Probe {
     private Integer id;
     @NotNull(message = "Operator name cannot be null")
     private String operator;
-    private String operator2;
-    private String probeMachine;
-    @NotEmpty(message = "Point number must be given")
-    private Integer pointNumber;
     @NotEmpty(message = "Please enter the depth of research")
     private String depth;
     @PastOrPresent(message = "You cannot start research in the future")
