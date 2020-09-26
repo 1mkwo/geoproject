@@ -1,7 +1,6 @@
 package com.sda.geoproject.domain.probe;
 
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.NotEmpty;
@@ -20,14 +19,10 @@ public class Probe {
     @NotNull(message = "Operator name cannot be null")
     private String operator;
     @NotEmpty(message = "Please enter the depth of research")
-    private String depth;
+    private Integer depth;
     @PastOrPresent(message = "You cannot start research in the future")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate probeDate;
     @NotEmpty(message = "Location of research is needed")
     private String location;
-
-
-
-
 }
