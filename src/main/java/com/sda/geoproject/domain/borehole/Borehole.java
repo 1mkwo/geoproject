@@ -14,7 +14,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+
 public class Borehole {
+
     private Integer id;
     @NotNull(message = "Evaluator can not be null")
     private String evaluator;
@@ -23,8 +25,7 @@ public class Borehole {
     private LocalDate bhDate;
     @NotEmpty(message = "Location of research is needed")
     private String location;
-    private String depth;
-    @NotEmpty(message = "If u want payment, give me difficulty status")
-    private int difficulty;
-
+    private Integer depth;
+    @NotEmpty(message = "Difficulty level")
+    private Integer difficulty;
 }
