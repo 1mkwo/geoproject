@@ -1,9 +1,9 @@
 <html lang="pl" xmlns:th="thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <body>
 <div th:fragment="navigation">
-    <h1>GeoProject</h1>
+    <h1>GeoProject1</h1>
 
-    <div sec:authorize="isAuthenticated()">
+    <div sec:authorize="isAnonymous()">
         <ul>
             <li><a th:href="@{/probe}">Sondowania</a></li>
             <li><a th:href="@{/borehole}">Odwierty</a></li>

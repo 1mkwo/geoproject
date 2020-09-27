@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Geoproject</title>
+</head>
+<body>
+
+<form method="post" th:action="@{/user}" th:object="${user}">
+    <input type="hidden" th:field="*{id}"/>
+    Wykonujący: <input type="text" th:field="*{user}"/><br>
+    Data wykonania: <input type="text" th:field="*{bhDate}"/><br>
+    Lokalizacja: <input type="text" th:field="*{location}"/><br>
+    Głębokość: <input type="text" th:field="*{depth}"/><br>
+    Trudność: <input type="text" th:field="*{difficulty}"/><br>
+    <input type="submit" value="Zapisz"/>
+</form>
+
+</body>
+</html>
