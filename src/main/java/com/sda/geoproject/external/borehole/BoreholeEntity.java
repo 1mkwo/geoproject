@@ -1,5 +1,7 @@
 package com.sda.geoproject.external.borehole;
 
+import com.sda.geoproject.domain.borehole.Borehole;
+import com.sda.geoproject.domain.probe.Probe;
 import com.sda.geoproject.external.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,10 +29,15 @@ public class BoreholeEntity{
     private UserEntity user;
 
     private LocalDate bhDate;
-
     private String location;
+    private Integer depth;
+    private Integer difficulty;
 
-    private String depth;
+    void updateFromDomain(Borehole borehole) {
+        this.bhDate = borehole.getBhDate();
+        this.location = borehole.getLocation();
+        this.depth = borehole.getDepth();
+        this.difficulty = borehole.getDifficulty();
 
-    private int difficulty;
+    }
 }

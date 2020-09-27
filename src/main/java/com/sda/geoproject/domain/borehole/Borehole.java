@@ -18,8 +18,8 @@ import java.time.LocalDate;
 public class Borehole {
 
     private Integer id;
-    @NotNull(message = "Evaluator can not be null")
-    private String evaluator;
+    @NotNull(message = "Operator can not be null")
+    private String operator;
     @PastOrPresent(message = "You cannot start research in the future")
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDate bhDate;

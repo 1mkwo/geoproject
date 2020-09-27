@@ -33,6 +33,6 @@ public class BoreholeService {
     }
 
     public Borehole getOne(Integer id){
-        return boreholeRepository.getOne(id).orElseThrow(()-> new IllegalArgumentException("Patient with given id not exist"));
+        return boreholeRepository.getOne(id).orElseThrow(()-> new IllegalArgumentException("Borehole with given id not exist"));
     }
 }
