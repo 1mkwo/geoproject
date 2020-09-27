@@ -21,7 +21,7 @@ public class Borehole {
     @NotNull(message = "Operator can not be null")
     private String operator;
     @PastOrPresent(message = "You cannot start research in the future")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate bhDate;
     @NotEmpty(message = "Location of research is needed")
     private String location;

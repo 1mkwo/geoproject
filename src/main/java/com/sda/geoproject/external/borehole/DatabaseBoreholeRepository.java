@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class DatabaseBoreholeRepository implements BoreholeRepository {
 
-    private JpaBoreholeRepository boreholeRepository;
+    private final JpaBoreholeRepository boreholeRepository;
     private final JpaUserRepository userRepository;
 
     @Override

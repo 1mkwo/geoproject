@@ -6,13 +6,13 @@
 </head>
 <body>
 
-<form method="post" th:action="@{/user}" th:object="${user}">
+<form method="post" th:action="@{/borehole/addOrUpdate}" th:object="${borehole}">
     <input type="hidden" th:field="*{id}"/>
-    Wykonujący: <input type="text" th:field="*{user}"/><br>
-    Data wykonania: <input type="text" th:field="*{bhDate}"/><br>
+    Wykonujący: <input type="text" th:field="*{operator}"/><br>
+    Data wykonania: <input type="date" th:field="*{bhDate}"/><br>
     Lokalizacja: <input type="text" th:field="*{location}"/><br>
-    Głębokość: <input type="text" th:field="*{depth}"/><br>
-    Trudność: <input type="text" th:field="*{difficulty}"/><br>
+    Głębokość: <input type="number" th:field="*{depth}"/><br>
+    Trudność: <input type="number" th:field="*{difficulty}"/><br>
     <input type="submit" value="Zapisz"/>
 </form>
 
