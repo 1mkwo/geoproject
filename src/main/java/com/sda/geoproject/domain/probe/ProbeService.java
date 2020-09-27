@@ -29,4 +29,12 @@ public class ProbeService {
       return probeRepository.getAll();
     }
 
+    public Probe getOne(int id) {
+        return probeRepository.getOne(id)
+                .orElseThrow(() -> new IllegalArgumentException("Patient with given id not exists"));
+    }
+
+    public void delete(int id) {
+        probeRepository.deleteP(id);
+    }
 }
