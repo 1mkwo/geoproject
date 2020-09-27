@@ -12,7 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/register")
+@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 

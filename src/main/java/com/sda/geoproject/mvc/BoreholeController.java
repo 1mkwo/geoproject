@@ -3,6 +3,7 @@ package com.sda.geoproject.mvc;
 import com.sda.geoproject.domain.borehole.Borehole;
 import com.sda.geoproject.domain.borehole.BoreholeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,7 +21,7 @@ public class BoreholeController {
     private final BoreholeService boreholeService;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
-   // @PreAuthorize("isAuthenticated()")
+    @PreAuthorize("isAuthenticated()")
     ModelAndView allBoreholePage() {
         ModelAndView mav = new ModelAndView("borehole.html");
         mav.addObject("borehole", boreholeService.getAll());
@@ -28,7 +29,7 @@ public class BoreholeController {
     }
 
     @GetMapping("/addOrUpdate")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('WORKER')")
     ModelAndView addBoreholePage(@RequestParam(name = "id", required = false) Integer id) {
         ModelAndView mav = new ModelAndView("addBorehole.html");
         if (id != null) {
@@ -40,7 +41,7 @@ public class BoreholeController {
     }
 
     @GetMapping("/delete")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('WORKER')")
     String deleteBorehole(@RequestParam Integer id) {
         boreholeService.deleteB(id);
 
@@ -48,7 +49,7 @@ public class BoreholeController {
     }
 
     @PostMapping("/addOrUpdate")
-    //@PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('WORKER')")
     String addOrUpdateBorehole(@ModelAttribute @Valid Borehole borehole, BindingResult bindingResult,
                               Model model) {
         if (bindingResult.hasErrors()) {
