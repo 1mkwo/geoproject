@@ -1,5 +1,6 @@
 package com.sda.geoproject.external.borehole;
 
+import com.sda.geoproject.external.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Getter
 @Builder
@@ -20,11 +22,14 @@ public class BoreholeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String evaluator;
+    @OneToMany(mappedBy = "probe")
+    private Set<UserEntity> user;
 
     private LocalDate bhDate;
 
     private String location;
+
     private String depth;
+
     private int difficulty;
 }
