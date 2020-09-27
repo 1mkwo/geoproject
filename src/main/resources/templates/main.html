@@ -3,7 +3,7 @@
 <head>
     <style th:inline="text">
         body{
-            background: url(static/images/bkg.png)
+            background: #6aff3e
             no-repeat center center fixed;
         }
     </style>
@@ -12,6 +12,7 @@
     <title>Geoproject</title>
 </head>
 <body>
+<div th:replace="fragments/header :: navigation"></div>
 
 <p>Dziś jest : <span th:text="${date}"></span></p>
 <p>Pracujemy od <span th:text="${config.openingHour}"></span> do

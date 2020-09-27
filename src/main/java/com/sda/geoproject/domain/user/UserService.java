@@ -4,10 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 @RequiredArgsConstructor
 public class UserService {
-    @Autowired
+    //@Autowired
     private final UserRepository userRepository;
 
     public void registerUser(User user){
