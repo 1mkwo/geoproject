@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//@Service
+@Service
 @RequiredArgsConstructor
 public class ProbeService {
-    @Autowired
+    //@Autowired
     private final ProbeRepository probeRepository;
 
     public void createP(Probe probe){

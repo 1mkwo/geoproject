@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoreholeService {
-    @Autowired
+    //@Autowired
     private final BoreholeRepository boreholeRepository;
 
     public void createB(Borehole borehole){
