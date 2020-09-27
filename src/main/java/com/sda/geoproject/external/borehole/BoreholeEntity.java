@@ -22,8 +22,9 @@ public class BoreholeEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @OneToMany(mappedBy = "probe")
-    private Set<UserEntity> user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     private LocalDate bhDate;
 
