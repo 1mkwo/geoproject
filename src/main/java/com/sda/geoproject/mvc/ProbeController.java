@@ -22,7 +22,7 @@ public class ProbeController {
     }
 
     @GetMapping("/addOrUpdate")
-    ModelAndView addPatientPage(@RequestParam(name = "id", required = false) Integer id) {
+    ModelAndView addProbePage(@RequestParam(name = "id", required = false) Integer id) {
         ModelAndView mav = new ModelAndView("addProbe.html");
         if (id != null) {
             mav.addObject("probe", probeService.getOne(id));
@@ -33,15 +33,19 @@ public class ProbeController {
     }
 
     @GetMapping("/delete")
-    String deletePatient(@RequestParam Integer id) {
+    String deleteProbe(@RequestParam Integer id) {
         probeService.delete(id);
 
         return "redirect:/probe";
     }
 
     @PostMapping("/addOrUpdate")
-    String addOrUpdatePatient(@ModelAttribute Probe probe) {
-        probeService.updateP(probe);
+    String addOrUpdateProbe(@ModelAttribute Probe probe) {
+        if (probe.getId() == null) {
+            probeService.createP(probe);
+        } else {
+            probeService.updateP(probe);
+        }
         return "redirect:/probe";
     }
 }
