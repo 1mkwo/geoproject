@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-
 public class Borehole {
 
     private Integer id;

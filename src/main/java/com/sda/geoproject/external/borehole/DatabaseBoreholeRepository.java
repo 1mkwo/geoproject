@@ -2,8 +2,6 @@ package com.sda.geoproject.external.borehole;
 
 import com.sda.geoproject.domain.borehole.Borehole;
 import com.sda.geoproject.domain.borehole.BoreholeRepository;
-import com.sda.geoproject.domain.probe.Probe;
-import com.sda.geoproject.external.probe.ProbeEntity;
 import com.sda.geoproject.external.user.JpaUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -12,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
 @Component
 @RequiredArgsConstructor
 public class DatabaseBoreholeRepository implements BoreholeRepository {

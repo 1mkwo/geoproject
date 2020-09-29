@@ -40,9 +40,13 @@ public class BoreholeController {
     }
 
     @PostMapping("/addOrUpdate")
-    String addOrUpdateBoreholet(@ModelAttribute Borehole borehole) {
-        boreholeService.updateB(borehole);
-        return "redirect:/borehole";
-    }
+    String addOrUpdateBorehole(@ModelAttribute Borehole borehole) {
 
+        if (borehole.getId() == null) {
+            boreholeService.createB(borehole);
+        } else {
+            boreholeService.updateB(borehole);;
+        }
+        return "redirect:/patient";
+    }
 }
