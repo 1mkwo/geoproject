@@ -1,18 +1,19 @@
 package com.sda.geoproject.domain.borehole;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoreholeService {
-    //@Autowired
+    @Autowired
     private final BoreholeRepository boreholeRepository;
 
     public void createB(Borehole borehole){
-        boreholeRepository.getOne(borehole.getId())
-                .ifPresent(bor-> {throw new IllegalStateException("Borehole with given ID already exists");});
+//        boreholeRepository.getOne(borehole.getId())
+//                .ifPresent(bor-> {throw new IllegalStateException("Borehole with given ID already exists");});
         boreholeRepository.createB(borehole);
     }
 

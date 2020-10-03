@@ -10,17 +10,6 @@
     <link th:href="@{style/dex.css}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Geoproject</title>
-    <style>
-        .header {
-            background-color: darkkhaki;
-        }
-        .odd {
-            background-color: darkolivegreen;
-        }
-        .even {
-            background-color: coral;
-        }
-    </style>
 </head>
 <body>
 
@@ -35,8 +24,8 @@
     <td>Usuń</td>
     </thead>
     <tbody>
-    <tr th:each="borehole, iterStat : ${borehole}" th:class="${iterStat.odd} ? 'odd' : 'even'">
-        <td><span th:text="${borehole.user}"></span></td>
+    <tr th:each="borehole, iterStat : ${boreholes}" >
+        <td><span th:text="${borehole.operator}"></span></td>
         <td><span th:text="${borehole.location}"></span></td>
         <td><span th:text="${borehole.bhDate}"></span></td>
         <td><span th:text="${borehole.depth}"></span></td>
@@ -46,6 +35,7 @@
     </tr>
     </tbody>
 </table>
+
 
 <div>
     <p><a th:href="@{/borehole/addOrUpdate}">Dodaj odwiert</a></p>
