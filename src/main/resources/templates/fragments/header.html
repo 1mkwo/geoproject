@@ -1,0 +1,26 @@
+<html lang="pl" xmlns:th="thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+<div th:fragment="navigation">
+    <h1>GeoProject1</h1>
+
+    <div sec:authorize="isAnonymous()">
+        <ul>
+            <li><a th:href="@{/probe}">Sondowania</a></li>
+            <li><a th:href="@{/borehole}">Odwierty</a></li>
+        </ul>
+    </div>
+
+        <p>Jesteś zalogowany jako <span sec:authentication="username"></span></p>
+       <div sec:authorize ="isAuthenticated()">
+           <a th:href="@{/logout}"> Wyloguj</a>
+    </div>
+
+    <div sec:authorize access="!isAuthenticated()">
+        <a th:href="@{/login}">Zaloguj się</a>
+    </div>
+    <div  sec:authorize access="!isAuthenticated()">
+        <a th:href="@{/user}">Zarejestruj sie</a>
+    </div>
+</div>
+</body>
+</html>

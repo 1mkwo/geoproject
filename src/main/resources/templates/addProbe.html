@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Probe</title>
+</head>
+<body>
+    <form method="post" th:action="@{/probe/addOrUpdate}" th:object="${probe}">
+        <input type="hidden" th:field="*{id}">
+        Operator: <input type="text" th:field="*{operator}"/><br>
+        Głębokość: <input type="number" th:field="*{depth}"/><br>
+        Data wykonania <input type="date" th:field="*{probeDate}"/><br>
+        Lokalizacja: <input type="text" th:field="*{location}"/>
+        <input type="submit" value="Zapisz"/>
+    </form>
+</body>
+</html>

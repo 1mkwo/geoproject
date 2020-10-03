@@ -5,10 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//@Service
+@Service
 @RequiredArgsConstructor
 public class ProbeService {
-    @Autowired
+    //@Autowired
     private final ProbeRepository probeRepository;
 
     public void createP(Probe probe){
@@ -29,4 +29,12 @@ public class ProbeService {
       return probeRepository.getAll();
     }
 
+    public Probe getOne(int id) {
+        return probeRepository.getOne(id)
+                .orElseThrow(() -> new IllegalArgumentException("Patient with given id not exists"));
+    }
+
+    public void delete(int id) {
+        probeRepository.deleteP(id);
+    }
 }

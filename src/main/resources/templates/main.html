@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="pl" xmlns:th="thymeleaf.org">
 <head>
+    <style th:inline="text">
+        body{
+            background: #6aff3e
+            no-repeat center center fixed;
+        }
+    </style>
+    <link th:href="@{style/dex.css}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Geoproject</title>
 </head>
 <body>
+<div th:replace="fragments/header :: navigation"></div>
 
 <p>Dziś jest : <span th:text="${date}"></span></p>
 <p>Pracujemy od <span th:text="${config.openingHour}"></span> do
     <span th:text="${config.closingHour}"></span></p>
-<p>Adres <span th:text="${config.address.street}"></span>
+<p>Adres naszego biura <span th:text="${config.address.street}"></span>
     <span th:text="${config.address.number}"></span>,
     <span th:text="${config.address.city}"></span></p>
 </body>

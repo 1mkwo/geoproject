@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="thymeleaf.org">
+<head>
+    <style th:inline="text">
+        body{
+            background: #6aff3e
+            no-repeat center center fixed;
+        }
+    </style>
+    <link th:href="@{style/dex.css}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Probes</title>
+</head>
+<body>
+
+    <table>
+        <thread>
+            <td>Operator</td>
+            <td>Głębokość</td>
+            <td>Data wykonania</td>
+            <td>Lokalizacja</td>
+        </thread>
+        <tbody>
+            <tr th:each="probe, iterStat : ${probes}" th:class="${iterStat.odd} ? 'odd' : 'even'">
+                <td><span th:text="${probe.user}}"></span></td>
+                <td><span th:text="${probe.depth}}"></span></td>
+                <td><span th:text="${probe.probeDate}}"></span></td>
+                <td><span th:text="${probe.localization}}"></span></td>
+                <td><a th:href="@{/probe/addOrUpdate?id=} + ${patient.id}">Edytuj</a></td>
+                <td><a th:href="@{/probe/delete?id=} + ${patient.id}">Usuń</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <p><a th:href="@{/probe/addOrUpdate}">Dodaj próbkę</a></p>
+    </div>
+</body>
+</html>

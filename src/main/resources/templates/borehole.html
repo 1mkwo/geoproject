@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <style th:inline="text">
+        body{
+            background: #6aff3e
+            no-repeat center center fixed;
+        }
+    </style>
+    <link th:href="@{style/dex.css}" rel="stylesheet" type="text/css">
+    <meta charset="UTF-8">
+    <title>Geoproject</title>
+    <style>
+        .header {
+            background-color: darkkhaki;
+        }
+        .odd {
+            background-color: darkolivegreen;
+        }
+        .even {
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead class="header">
+    <td>Wykonujący</td>
+    <td>Lokalizacja</td>
+    <td>Data wykonania</td>
+    <td>Głębokość</td>
+    <td>Trudność</td>
+    <td>Edytuj</td>
+    <td>Usuń</td>
+    </thead>
+    <tbody>
+    <tr th:each="borehole, iterStat : ${borehole}" th:class="${iterStat.odd} ? 'odd' : 'even'">
+        <td><span th:text="${borehole.user}"></span></td>
+        <td><span th:text="${borehole.location}"></span></td>
+        <td><span th:text="${borehole.bhDate}"></span></td>
+        <td><span th:text="${borehole.depth}"></span></td>
+        <td><span th:text="${borehole.difficulty}"></span></td>
+        <td><a th:href="@{/borehole/addOrUpdate?id=} + ${borehole.id}">Edytuj</a></td>
+        <td><a th:href="@{/borehole/delete?id=} + ${borehole.id}">Usuń</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
