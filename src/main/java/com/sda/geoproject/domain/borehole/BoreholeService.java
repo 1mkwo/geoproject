@@ -1,9 +1,7 @@
 package com.sda.geoproject.domain.borehole;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 @Service
@@ -23,8 +21,8 @@ public class BoreholeService {
     }
 
     public void updateB(Borehole  borehole){
-        boreholeRepository.getOne(borehole.getId()).filter(bor-> !bor.getId().equals(bor.getId()))
-                .ifPresent(pro -> {throw new IllegalStateException("Borehole with same Id already exists");});
+        boreholeRepository.getOne(borehole.getId()).filter(bor-> !bor.getId().equals(borehole.getId()))
+                .ifPresent(bro -> {throw new IllegalStateException("Borehole with same Id already exists");});
         boreholeRepository.updateB(borehole);
     }
 
