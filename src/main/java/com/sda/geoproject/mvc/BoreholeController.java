@@ -47,6 +47,6 @@ public class BoreholeController {
         } else {
             boreholeService.updateB(borehole);;
         }
-        return "redirect:/patient";
+        return "redirect:/borehole";
     }
 }
