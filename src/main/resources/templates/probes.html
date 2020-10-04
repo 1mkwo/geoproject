@@ -25,9 +25,9 @@
                 <td><span th:text="${probe.operator}"></span></td>
                 <td><span th:text="${probe.depth}"></span></td>
                 <td><span th:text="${probe.probeDate}"></span></td>
-                <td><span th:text="${probe.localization}"></span></td>
-                <td><a th:href="@{/probe/addOrUpdate?id=} + ${patient.id}">Edytuj</a></td>
-                <td><a th:href="@{/probe/delete?id=} + ${patient.id}">Usuń</a></td>
+                <td><span th:text="${probe.location}"></span></td>
+                <td><a th:href="@{/probe/addOrUpdate?id=} + ${probe.id}">Edytuj</a></td>
+                <td><a th:href="@{/probe/delete?id=} + ${probe.id}">Usuń</a></td>
             </tr>
         </tbody>
     </table>
