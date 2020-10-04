@@ -1,14 +1,12 @@
 package com.sda.geoproject.domain.borehole;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class BoreholeService {
-    @Autowired
     private final BoreholeRepository boreholeRepository;
 
     public void createB(Borehole borehole){

@@ -21,7 +21,7 @@ public class DatabaseBoreholeRepository implements BoreholeRepository {
     @Override
     public void createB(Borehole borehole) {
         BoreholeEntity entity = BoreholeEntity.builder().user(userRepository.findByUsername(borehole.getOperator())
-            .orElseThrow(() -> new IllegalStateException("User does not exiists.")))
+            .orElseThrow(() -> new IllegalStateException("User does not exists.")))
                 .bhDate(borehole.getBhDate())
                 .location(borehole.getLocation())
                 .depth(borehole.getDepth())

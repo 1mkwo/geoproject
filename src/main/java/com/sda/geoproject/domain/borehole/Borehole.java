@@ -24,7 +24,6 @@ public class Borehole {
     private LocalDate bhDate;
     @NotEmpty(message = "Please enter the depth of research")
     private Integer depth;
-    @NotEmpty(message = "Difficulty level")
     private Integer difficulty;
     @NotEmpty(message = "Location of research is needed")
     private String location;
