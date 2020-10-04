@@ -22,9 +22,10 @@ public class Borehole {
     @PastOrPresent(message = "You cannot start research in the future")
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate bhDate;
-    @NotEmpty(message = "Location of research is needed")
-    private String location;
+    @NotEmpty(message = "Please enter the depth of research")
     private Integer depth;
     @NotEmpty(message = "Difficulty level")
     private Integer difficulty;
+    @NotEmpty(message = "Location of research is needed")
+    private String location;
 }

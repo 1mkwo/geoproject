@@ -45,7 +45,7 @@ public class BoreholeController {
         if (borehole.getId() == null) {
             boreholeService.createB(borehole);
         } else {
-            boreholeService.updateB(borehole);;
+            boreholeService.updateB(borehole);
         }
         return "redirect:/borehole";
     }

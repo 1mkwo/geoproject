@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" xmlns:th="thymeleaf.org">
+<html lang="pl" xmlns:th="thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <style th:inline="text">
         body{
@@ -14,18 +14,18 @@
 <body>
 
     <table>
-        <thread>
+        <thead class="header">
             <td>Operator</td>
             <td>Głębokość</td>
             <td>Data wykonania</td>
             <td>Lokalizacja</td>
-        </thread>
+        </thead>
         <tbody>
-            <tr th:each="probe, iterStat : ${probes}" th:class="${iterStat.odd} ? 'odd' : 'even'">
-                <td><span th:text="${probe.user}}"></span></td>
-                <td><span th:text="${probe.depth}}"></span></td>
-                <td><span th:text="${probe.probeDate}}"></span></td>
-                <td><span th:text="${probe.localization}}"></span></td>
+            <tr th:each="probe, iterStat : ${probes}" >
+                <td><span th:text="${probe.operator}"></span></td>
+                <td><span th:text="${probe.depth}"></span></td>
+                <td><span th:text="${probe.probeDate}"></span></td>
+                <td><span th:text="${probe.localization}"></span></td>
                 <td><a th:href="@{/probe/addOrUpdate?id=} + ${patient.id}">Edytuj</a></td>
                 <td><a th:href="@{/probe/delete?id=} + ${patient.id}">Usuń</a></td>
             </tr>

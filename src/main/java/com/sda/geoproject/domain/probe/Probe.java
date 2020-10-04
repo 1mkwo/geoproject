@@ -15,14 +15,15 @@ import java.time.LocalDate;
 @Setter
 @ToString
 public class Probe {
+
     private Integer id;
     @NotNull(message = "Operator name cannot be null")
     private String operator;
+    @PastOrPresent(message = "You cannot start research in the future")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate probeDate;
     @NotEmpty(message = "Please enter the depth of research")
     private Integer depth;
-    @PastOrPresent(message = "You cannot start research in the future")
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDate probeDate;
     @NotEmpty(message = "Location of research is needed")
     private String location;
 }

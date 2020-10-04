@@ -22,13 +22,13 @@ public class ProbeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-
     private Integer depth;
     private LocalDate probeDate;
     private String location;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     void updateFromDomain(Probe probe) {
         this.location = probe.getLocation();
