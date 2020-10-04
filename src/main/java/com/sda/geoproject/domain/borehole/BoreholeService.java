@@ -12,8 +12,6 @@ public class BoreholeService {
     private final BoreholeRepository boreholeRepository;
 
     public void createB(Borehole borehole){
-//        boreholeRepository.getOne(borehole.getId())
-//                .ifPresent(bor-> {throw new IllegalStateException("Borehole with given ID already exists");});
         boreholeRepository.createB(borehole);
     }
 
@@ -32,6 +30,7 @@ public class BoreholeService {
     }
 
     public Borehole getOne(Integer id){
-        return boreholeRepository.getOne(id).orElseThrow(()-> new IllegalArgumentException("Borehole with given id not exist"));
+        return boreholeRepository.getOne(id)
+                .orElseThrow(()-> new IllegalArgumentException("Borehole with given id not exist"));
     }
 }
