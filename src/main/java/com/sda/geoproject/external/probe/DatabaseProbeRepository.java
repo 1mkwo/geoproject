@@ -4,6 +4,7 @@ import com.sda.geoproject.domain.probe.Probe;
 import com.sda.geoproject.domain.probe.ProbeRepository;
 import com.sda.geoproject.external.user.JpaUserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class DatabaseProbeRepository implements ProbeRepository {
 
     @Override
     public void createP(Probe probe) {
-        ProbeEntity entity = ProbeEntity.builder().user(userRepository.findByUsername(probe.getOperator())
-                .orElseThrow(() -> new IllegalStateException("User does not exists.")))
+        ProbeEntity entity = ProbeEntity.builder()
+                .user(userRepository.findByUsername(probe.getOperator()).orElseThrow(() -> new IllegalStateException("User does not exists.")))
                 .depth(probe.getDepth())
                 .location(probe.getLocation())
                 .probeDate(probe.getProbeDate())
