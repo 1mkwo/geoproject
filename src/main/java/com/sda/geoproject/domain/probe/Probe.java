@@ -26,4 +26,6 @@ public class Probe {
     private Integer depth;
     @NotEmpty(message = "Location of research is needed")
     private String location;
+
+
 }
