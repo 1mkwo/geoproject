@@ -1,6 +1,7 @@
 package com.sda.geoproject.external.borehole;
 
 import com.sda.geoproject.domain.borehole.Borehole;
+import com.sda.geoproject.domain.borehole.ListOfLayers;
 import com.sda.geoproject.external.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Builder

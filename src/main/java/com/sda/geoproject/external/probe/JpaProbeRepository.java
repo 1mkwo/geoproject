@@ -1,6 +1,5 @@
 package com.sda.geoproject.external.probe;
 
-import com.sda.geoproject.external.borehole.BoreholeEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

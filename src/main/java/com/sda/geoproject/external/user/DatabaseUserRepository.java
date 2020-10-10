@@ -9,7 +9,9 @@ import java.util.Optional;
 @Component
 @RequiredArgsConstructor
 public class DatabaseUserRepository implements UserRepository {
+
     private final JpaUserRepository userRepository;
+
     @Override
     public void create(User user) {
         UserEntity entity= UserEntity.builder()
