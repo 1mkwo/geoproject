@@ -20,6 +20,7 @@ public class BoreholeController {
     private final BoreholeService boreholeService;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
+    @PreAuthorize("hasAnyRole('WORKER', 'OFFICE')")
     ModelAndView allBoreholePage() {
         ModelAndView mav = new ModelAndView("boreholes.html");
         mav.addObject("boreholes", boreholeService.getAll());

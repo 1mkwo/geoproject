@@ -3,6 +3,7 @@ package com.sda.geoproject.mvc;
 import com.sda.geoproject.domain.probe.Probe;
 import com.sda.geoproject.domain.probe.ProbeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,6 +16,7 @@ public class ProbeController {
     private final ProbeService probeService;
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
+    @PreAuthorize("hasAnyRole('WORKER', 'OFFICE')")
     ModelAndView allProbesPage() {
         ModelAndView mav = new ModelAndView("probes.html");
         mav.addObject("probes", probeService.getAll());
@@ -22,6 +24,7 @@ public class ProbeController {
     }
 
     @GetMapping("/addOrUpdate")
+    @PreAuthorize("hasRole('WORKER')")
     ModelAndView addProbePage(@RequestParam(name = "id", required = false) Integer id) {
         ModelAndView mav = new ModelAndView("addProbe.html");
         if (id != null) {
@@ -33,6 +36,7 @@ public class ProbeController {
     }
 
     @GetMapping("/delete")
+    @PreAuthorize("hasRole('WORKER')")
     String deleteProbe(@RequestParam Integer id) {
         probeService.deleteP(id);
 
@@ -40,6 +44,7 @@ public class ProbeController {
     }
 
     @PostMapping("/addOrUpdate")
+    @PreAuthorize("hasRole('WORKER')")
     String addOrUpdateProbe(@ModelAttribute Probe probe) {
 
         if (probe.getId() == null) {
